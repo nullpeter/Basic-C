@@ -10,14 +10,17 @@
 
 #include <stdio.h>
 
-/* count TABS in input */
+/* count tabs and spaces in input as per Exercise 1-8 */
 main()
 {
-    int c, tab;
+    int c, tab, space;
 
+    space = 0;
     tab = 0;
     while ((c = getchar()) != EOF)
         if (c == '\t')
             ++tab;
-    printf("%d\n", tab);
+        else if (c == ' ')
+            ++space;
+    printf("%d tabs, %d spaces", tab, space);
 }

@@ -1,20 +1,21 @@
 //
-// Created by Peter Pyne on 8/20/2017.
+// Created by Peter Pyne on 8/25/2017.
 //
 
 #include <stdio.h>
 /* print Fahrenheit-Celsius table
  * for fahr = 0, 20, ..., 300; floating-point version
- * Adding header above table */
+ * Adding header above table
+ * Adding Celsius-Fahrenheit table */
 
 main()
 {
     float fahr, celsius;
     int lower, upper, step;
 
-    lower = 0;      /* lower limit of temperature table */
-    upper = 300;    /* upper limit */
-    step = 20;      /* step size */
+    lower = -40;      /* lower limit of temperature table */
+    upper = 110;    /* upper limit */
+    step = 10;      /* step size */
 
     fahr = lower;
 
@@ -25,4 +26,15 @@ main()
         printf("%.0f\t\t%.1f\n", fahr, celsius);
         fahr = fahr + step;
     }
+    printf("\n");
+    printf("Celsius\t\tFahrenheit\n");
+    celsius = lower;
+    upper = 50;
+
+    while (celsius <= upper) {
+        fahr = (9.0 / 5.0) * celsius + 32;
+        printf("%0.f\t\t%.0f\n", celsius, fahr);
+        celsius = celsius + step;
+    }
+
 }

@@ -10,14 +10,14 @@
 
 #include <stdio.h>
 
-/* count lines in input */
+/* count TABS in input */
 main()
 {
-    int c, nl;
+    int c, tab;
 
-    nl = 0;
+    tab = 0;
     while ((c = getchar()) != EOF)
         if (c == '\t')
-            ++nl;
-    printf("%d\n", nl);
+            ++tab;
+    printf("%d\n", tab);
 }

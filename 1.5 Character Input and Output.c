@@ -3,14 +3,12 @@
 //
 #include <stdio.h>
 
-/* copy input to output; 1st version (1.5.1) */
+/* copy input to output; 2nd version (1.5.1) */
 main()
 {
     int c;
 
-    c = getchar();
-    while (c != EOF) {
+    while ((c = getchar()) != EOF) {
         putchar(c);
-        c = getchar();
     }
 }

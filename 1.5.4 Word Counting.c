@@ -8,6 +8,10 @@
 #define OUT 0   /* outside a word */
 
 /* count lines, words, and characters in input */
+/* For exercise 1-11, I'm going to test by doing alt-codes, very long inputs from paste. No input. */
+/* Nothing I did seems to break it. */
+
+
 main()
 {
     int c, nl, nw, nc, state;

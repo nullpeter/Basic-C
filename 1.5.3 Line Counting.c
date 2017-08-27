@@ -7,23 +7,21 @@
 
 #include <stdio.h>
 
-/* Copy input to output, replace each string of one or more blanks with a single blank as per Ex 1-9*/
-/* I had to Google for assistance with this one. Managed to get the right code, but needed the hint */
-/* to call getchar() a second time to ignore consecutive spaces. Makes sense to me now. */
+/* Copy input to output, replacing each tab by \t, backspace by \b, and backslash by \\ as per ex 1-10 */
+/* Note, the backspace character can't be replicated in CMD to my knowledge, but everything else works in windows */
+/* Not elegant, but satisfies the exercise goal. */
 
 main()
 {
-    int space, c;
-    space = 0;
+    int c;
 
     while ((c = getchar()) != EOF)
-        if (c == ' ')
-            {
-            while ((c = getchar()) == ' ')  /* Testing if the first character after the 1st space is another space */
-                ;                           /* If it is, we do nothing (ignore the space and ask again) */
-            printf(" ");                    /* If it isn't, we print the initial space */
-            putchar(c);                     /* Followed by the input that broke us out of the second while loop */
-            }
+        if (c == '\t')
+            printf("\\t");
+        else if (c == '\b')
+            printf("\\b");
+        else if (c == '\\')
+            printf("\\\\");
         else
-            putchar(c);                     /* We print non spaces normally. */
+            putchar(c);                     /* We print regular characters normally. */
 }

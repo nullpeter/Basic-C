@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-/* Exercise 1-13: Write a program to print a histogram of the lengths of words in its input. Vertical & horizontal.*/
+/* Exercise 1-13: Write a program to print a histogram of the lengths of words in its input. */
 
 main()
 {

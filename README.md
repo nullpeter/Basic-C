@@ -14,3 +14,9 @@ As it stands, due to lack of knowledge or dissatisfaction with answers on the in
 Exercise 1-13 "Write a program to print a histogram of the lengths of words in its input. It is easy to draw the histogram with the bars horizontal; a **vertical orientation is more challenging.**"
 
 I have not done the vertical orientation portion of this challenge.
+
+---
+
+To Do:
+
+Import and use the gmp library to work with the product of chapter 1.8, which I've turned into a rudimentary password keyspace calculator. It currently tops out at 4,533,461,702,709,235,777 as it's highest number (95 ^ 10). We need more than that.

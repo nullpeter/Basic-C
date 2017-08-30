@@ -12,7 +12,7 @@ int base = 95;
 
 int main (){
     printf("The standard english character set consists of 95 unique characters when including 0-9, a-z, A-Z, and"
-                   "all special characters (!@#$) including space.\n\n");
+                   " all special characters (!@#$) including space.\n\n");
     printf("Keyspace by length of password:\n\n");
     for (n = 4; n <= 10 ; ++n) {
         printf("%d ^ %d = %lld\n\n", base, n, power(base, n));

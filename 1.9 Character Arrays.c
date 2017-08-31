@@ -8,6 +8,10 @@
  * of the beginning of the array - there is no copying of array elements."
  *
  * This is a new concept for me, but I mostly understand now how modifying s also modifies line.
+ *
+ * For Exercise 1-16 it's hard to know exactly what is being asked - answers on the internet vary wildly also. I take
+ * the exercise to mean "print the length and content of the line in the main() function" - so that's what I'm going
+ * for.
 */
 
 #include <stdio.h>
@@ -26,9 +30,15 @@ int main()
 
     max = 0;
     while ((len = getln(line, MAXLINE)) > 0)
-        if (len > max) {
-            max = len;
-            copy(longest, line);
+        for (int i = 0; i <= len; ++i) {        /* count up until i = length fetched by getln */
+            putchar(line[i]);                   /* put each character */
+            if (i == (len - 1)) {               /* once i equals len, less the termination character \0 */
+                printf("%i Characters\n", i);   /* print the value of i */
+            }
+            if (len > max) {                    /* carry on as per normal */
+                max = len;
+                copy(longest, line);
+            }
         }
     if (max > 0)                   /* there was a line */
         printf("%s", longest);
@@ -39,7 +49,7 @@ int main()
 int getln(char s[], int lim)
 {
     int c, i;
-
+    printf("\n");                   /* For formatting, ease of reading */
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
         s[i] = c;
     if (c == '\n') {

@@ -12,6 +12,8 @@
  * For Exercise 1-16 it's hard to know exactly what is being asked - answers on the internet vary wildly also. I take
  * the exercise to mean "print the length and content of the line in the main() function" - so that's what I'm going
  * for.
+ *
+ * For Exercise 1-17, I chose to stuff the length test in at the beginning,
 */
 
 #include <stdio.h>
@@ -29,17 +31,27 @@ int main()
     char longest[MAXLINE];          /* longest line saved here */
 
     max = 0;
-    while ((len = getln(line, MAXLINE)) > 0)
-        for (int i = 0; i <= len; ++i) {        /* count up until i = length fetched by getln */
-            putchar(line[i]);                   /* put each character */
-            if (i == (len - 1)) {               /* once i equals len, less the termination character \0 */
-                printf("%i Characters\n", i);   /* print the value of i */
+    while ((len = getln(line, MAXLINE)) > 0) {
+        if (len > 80) {                         /* EX 1-17 - test if longer than 80 character */
+            printf("\n");
+            for (int j = 0; j <= len; ++j) {    /* count up while i = length */
+                putchar(line[j]);               /* put each character */
             }
-            if (len > max) {                    /* carry on as per normal */
-                max = len;
-                copy(longest, line);
+            printf("80+ Characters\n");
+        }
+        else {
+            for (int i = 0; i <= len; ++i) {        /* EX 1-16 count up while i <= length fetched by getln */
+                putchar(line[i]);                   /* put each character */
+                if (i == (len - 1)) {               /* once i equals len, less the termination character \0 */
+                    printf("%i Characters\n", i);   /* print the value of i */
+                }
             }
         }
+        if (len > max) {                    /* carry on as per normal */
+            max = len;
+            copy(longest, line);
+        }
+    }
     if (max > 0)                   /* there was a line */
         printf("%s", longest);
     return 0;

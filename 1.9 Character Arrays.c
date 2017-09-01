@@ -13,7 +13,10 @@
  * the exercise to mean "print the length and content of the line in the main() function" - so that's what I'm going
  * for.
  *
- * For Exercise 1-17, I chose to stuff the length test in at the beginning,
+ * For Exercise 1-17, I chose to stuff the length test in at the beginning, and try to leave functionality otherwise.
+ *
+ * For Exercise 1-18, I struggled until I realized the magic of len-2 to parse out the characters at the end of a string.
+ * It took way to long to figure that out, but I did.
 */
 
 #include <stdio.h>
@@ -32,18 +35,22 @@ int main()
 
     max = 0;
     while ((len = getln(line, MAXLINE)) > 0) {
+        while (line[len - 2] == ' ' || line[len - 2] == '\t') {     /* "Magic" 2 removes \0 and \n in the array that ends a string array in C */
+            len--;                                                  /* reverse through the length of the array until a valid letter is hit (1-18) */
+            }
         if (len > 80) {                         /* EX 1-17 - test if longer than 80 character */
-            printf("\n");
             for (int j = 0; j <= len; ++j) {    /* count up while i = length */
                 putchar(line[j]);               /* put each character */
             }
             printf("80+ Characters\n");
+        } else if (len <= 1) {                  /* eliminate 0 length lines, do not count or copy (Ex 1-18)*/
+            continue;
         }
         else {
             for (int i = 0; i <= len; ++i) {        /* EX 1-16 count up while i <= length fetched by getln */
                 putchar(line[i]);                   /* put each character */
                 if (i == (len - 1)) {               /* once i equals len, less the termination character \0 */
-                    printf("%i Characters\n", i);   /* print the value of i */
+                    printf("\n%i Characters\n", i);   /* print the value of i */
                 }
             }
         }
@@ -61,7 +68,7 @@ int main()
 int getln(char s[], int lim)
 {
     int c, i;
-    printf("\n");                   /* For formatting, ease of reading */
+    printf("\b");                                   /* For formatting */
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
         s[i] = c;
     if (c == '\n') {

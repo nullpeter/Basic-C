@@ -17,6 +17,8 @@
  *
  * For Exercise 1-18, I struggled until I realized the magic of len-2 to parse out the characters at the end of a string.
  * It took way to long to figure that out, but I did.
+ *
+ * For Exercise 1-19, I decided to break out into a different file. See 1.9.2 Character Arrays
 */
 
 #include <stdio.h>
@@ -87,4 +89,4 @@ void copy(char to[], char from[])
     i = 0;
     while ((to[i] = from[i]) != '\0')
         ++i;
-}
+]
